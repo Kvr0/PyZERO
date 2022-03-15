@@ -129,7 +129,13 @@ class Game:
         self.deck.shuffle()
         self.player:list[Player] = [Player(Hand(self.deck.draw(9))) for _ in range(player_num)]
         self.field = Field(self.deck.draw(5))
+    
+    def __str__(self) -> str:
+        return f'(P:{self.player},F:{self.field})'
 
-game = Game(1)
-print(game.player[0].hand)
-print(game.player[0].getScore())
+    def __repr__(self) -> str:
+        return self.__str__()
+
+
+game = Game(2)
+print(game)
